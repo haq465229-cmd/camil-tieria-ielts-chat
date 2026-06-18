@@ -1,0 +1,30 @@
+name: Build macOS App
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        working-directory: electron-app
+        run: npm install
+
+      - name: Build macOS .dmg
+        working-directory: electron-app
+        run: npm run build
+
+      - name: Upload .dmg
+        uses: actions/upload-artifact@v4
+        with:
+          name: 雅思农场助手-mac.dmg
+          path: electron-app/dist/*.dmg
