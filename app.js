@@ -480,9 +480,10 @@ function buildMessage(message) {
     avatar.alt = "Camil and Tieria 助手";
     avatar.className = "message-avatar";
   } else {
-    avatar = document.createElement("span");
+    avatar = document.createElement("img");
+    avatar.src = "assets/generated/user-avatar.png";
+    avatar.alt = "用户头像";
     avatar.className = "message-avatar message-user-avatar";
-    avatar.textContent = [...currentUser][0]?.toUpperCase() || "A";
   }
 
   const block = document.createElement("div");
