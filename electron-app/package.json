@@ -3,31 +3,34 @@
   "version": "1.0.0",
   "description": "雅思农场助手 · macOS 桌面版",
   "main": "main.js",
+  "author": "Camil&Tieria",
   "scripts": {
     "start": "electron .",
     "build": "electron-builder --mac",
-    "build:dmg": "electron-builder --mac dmg",
-    "build:zip": "electron-builder --mac zip"
+    "build:mac": "electron-builder --mac",
+    "build:win": "electron-builder --win portable"
   },
   "build": {
     "appId": "com.camiltieria.ielts-chat",
     "productName": "雅思农场助手",
     "mac": {
-      "target": [
-        { "target": "dmg", "arch": ["x64"] },
-        { "target": "zip", "arch": ["x64"] }
-      ],
+      "target": ["dmg", "zip"],
       "category": "public.app-category.education"
+    },
+    "win": {
+      "target": "portable",
+      "sign": null
     },
     "files": [
       "main.js",
-      "preload.js",
-      "../server.js",
-      "../index.html",
-      "../app.js",
-      "../styles.css",
-      "../assets/**",
-      "../package.json"
+      "preload.js"
+    ],
+    "extraResources": [
+      { "from": "../server.js", "to": "extra/server.js" },
+      { "from": "../index.html", "to": "extra/index.html" },
+      { "from": "../app.js", "to": "extra/app.js" },
+      { "from": "../styles.css", "to": "extra/styles.css" },
+      { "from": "../assets", "to": "extra/assets" }
     ]
   },
   "devDependencies": {

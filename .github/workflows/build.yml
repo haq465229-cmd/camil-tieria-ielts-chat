@@ -21,10 +21,12 @@ jobs:
 
       - name: Build macOS .dmg
         working-directory: electron-app
-        run: npm run build
+        run: npm run build:mac
 
-      - name: Upload .dmg
+      - name: Upload artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: 雅思农场助手-mac.dmg
-          path: electron-app/dist/*.dmg
+          name: mac-app
+          path: |
+            electron-app/dist/*.dmg
+            electron-app/dist/*.zip
