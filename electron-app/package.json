@@ -1,0 +1,34 @@
+{
+  "name": "camil-tieria-ielts-chat",
+  "version": "1.0.0",
+  "description": "雅思农场助手 · macOS 桌面版",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder --mac",
+    "build:dmg": "electron-builder --mac dmg",
+    "build:zip": "electron-builder --mac zip"
+  },
+  "build": {
+    "appId": "com.camiltieria.ielts-chat",
+    "productName": "雅思农场助手",
+    "mac": {
+      "target": ["dmg", "zip"],
+      "category": "public.app-category.education"
+    },
+    "files": [
+      "main.js",
+      "preload.js",
+      "../server.js",
+      "../index.html",
+      "../app.js",
+      "../styles.css",
+      "../assets/**",
+      "../package.json"
+    ]
+  },
+  "devDependencies": {
+    "electron": "^28.0.0",
+    "electron-builder": "^24.0.0"
+  }
+}
