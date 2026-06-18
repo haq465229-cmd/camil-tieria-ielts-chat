@@ -1,8 +1,4 @@
 node_modules/
-.env
-.env.*
+.DS_Store
+Thumbs.db
 *.log
-
-# 原始概念切片包已被新的像素资产替代，不参与发布。
-farm_chat_ui_layers/
-
