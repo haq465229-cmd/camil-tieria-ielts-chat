@@ -14,8 +14,8 @@
     "productName": "雅思农场助手",
     "mac": {
       "target": [
-        { "target": "dmg", "arch": ["x64", "arm64"] },
-        { "target": "zip", "arch": ["x64", "arm64"] }
+        { "target": "dmg", "arch": ["x64"] },
+        { "target": "zip", "arch": ["x64"] }
       ],
       "category": "public.app-category.education"
     },
