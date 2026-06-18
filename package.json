@@ -1,0 +1,10 @@
+{
+  "name": "malt-ielts-farm-chat",
+  "version": "1.0.0",
+  "private": true,
+  "description": "农场主题的雅思写作评分 Chat Box",
+  "scripts": {
+    "start": "node server.js"
+  }
+}
+

@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#8c5429" />
+  <title>Camil&amp;Tieria · 雅思农场助手</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="grain" aria-hidden="true"></div>
+
+  <section class="auth-screen" id="authScreen" aria-labelledby="authTitle">
+    <div class="auth-scene" aria-hidden="true">
+      <span class="cloud cloud-one"></span>
+      <span class="cloud cloud-two"></span>
+      <img src="assets/generated/pixel-login-farm.png" alt="" />
+    </div>
+    <div class="auth-card">
+      <div class="brand-mark">
+        <span class="brand-chick">🌱</span>
+        <div><b>Camil&amp;Tieria</b><small>IELTS FARM</small></div>
+      </div>
+      <div class="auth-copy">
+        <span class="eyebrow">写作练习，从一颗种子开始</span>
+        <h1 id="authTitle">欢迎来到<br />你的雅思农场</h1>
+        <p id="authIntro">注册一个账号，练习记录、积分与等级都会留在这台设备上。</p>
+      </div>
+      <form class="auth-form" id="authForm">
+        <label>
+          <span>用户名</span>
+          <input id="usernameInput" name="username" autocomplete="username" placeholder="给自己起个名字" required />
+        </label>
+        <label>
+          <span>密码</span>
+          <div class="password-field">
+            <input id="passwordInput" name="password" type="password" autocomplete="new-password" placeholder="输入密码" required />
+            <button type="button" class="text-button" id="togglePassword" aria-label="显示密码">显示</button>
+          </div>
+        </label>
+        <p class="form-error" id="authError" role="alert"></p>
+        <button class="primary-auth-button" id="authSubmit" type="submit">
+          <span id="authSubmitText">注册并进入农场</span><span aria-hidden="true">→</span>
+        </button>
+      </form>
+      <button class="auth-switch" id="authSwitch" type="button">已有账号？登录</button>
+      <p class="local-note">🔒 账号资料仅保存在当前浏览器</p>
+    </div>
+  </section>
+
+  <main class="app-shell is-hidden" id="appShell">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-top">
+        <button class="mobile-close" id="mobileClose" aria-label="关闭侧栏">×</button>
+        <div class="side-brand">
+          <img src="assets/generated/pixel-header-camil-tieria.png" alt="Camil and Tieria" />
+          <div class="brand-overlay"><b>Camil&amp;Tieria</b><span>雅思农场助手</span></div>
+        </div>
+        <button class="new-chat-button" id="newChatButton" type="button">
+          <span class="new-chat-plus">＋</span><b>新建对话</b><span>🌱</span>
+        </button>
+      </div>
+
+      <nav class="conversation-nav" aria-label="最近对话">
+        <div class="section-label"><span>🌼</span><b>最近对话</b></div>
+        <div class="conversation-list" id="conversationList"></div>
+      </nav>
+
+      <section class="growth-card" aria-labelledby="growthTitle">
+        <div class="growth-heading">
+          <div><span>成长田</span><strong id="levelLabel">Lv.1</strong></div>
+          <span class="points-pill"><b id="pointsValue">0</b> 积分</span>
+        </div>
+        <div class="plant-stage" id="plantStage" aria-hidden="true">
+          <span class="soil"></span><span class="stem"></span><span class="leaf leaf-left"></span><span class="leaf leaf-right"></span><span class="flower">✦</span>
+        </div>
+        <div class="progress-track"><span id="progressBar"></span></div>
+        <p id="progressText">再获得 1 分，点亮 Lv.1</p>
+      </section>
+
+      <div class="sidebar-footer">
+        <button class="side-action" id="openLevelGuide" type="button"><span>🏅</span><b>等级图鉴</b><small>查看</small></button>
+        <button class="side-action" id="openSettings" type="button"><span>⚙️</span><b>助手设置</b><small>API</small></button>
+        <button class="user-chip" id="logoutButton" type="button" title="退出登录">
+          <span class="user-avatar" id="userInitial">A</span>
+          <span><b id="currentUsername">农场主</b><small>退出登录</small></span>
+          <span aria-hidden="true">↗</span>
+        </button>
+      </div>
+    </aside>
+
+    <div class="sidebar-scrim" id="sidebarScrim"></div>
+
+    <section class="chat-workspace">
+      <header class="topbar">
+        <button class="mobile-menu" id="mobileMenu" aria-label="打开侧栏">☰</button>
+        <div class="title-sign">
+          <span class="vine" aria-hidden="true">❧ · · · ❧</span>
+          <div class="mode-heading">
+            <span class="mode-icon" id="modeIcon">✍️</span>
+            <div><h2 id="modeTitle">雅思助手</h2><p id="modeSubtitle">写作评分 · 精准诊断</p></div>
+          </div>
+          <button class="mode-switch" id="modeSwitch" type="button" aria-haspopup="menu" aria-expanded="false">
+            切换模式 <span>⌄</span>
+          </button>
+          <div class="mode-menu" id="modeMenu" role="menu">
+            <button type="button" data-mode="ielts" role="menuitem"><span>✍️</span><div><b>雅思助手</b><small>作文评分与修改建议</small></div><i>✓</i></button>
+            <button type="button" data-mode="general" role="menuitem"><span>🌰</span><div><b>日常助手</b><small>自由问答与图片对话</small></div><i></i></button>
+          </div>
+        </div>
+        <button class="compact-settings" id="compactSettings" aria-label="打开设置">⚙</button>
+      </header>
+
+      <section class="chat-scroll" id="chatScroll" aria-live="polite">
+        <div class="chat-inner" id="messages"></div>
+        <button class="jump-bottom is-hidden" id="jumpBottom" type="button">↓ 回到最新</button>
+      </section>
+
+      <footer class="composer-wrap">
+        <div class="attachment-preview is-hidden" id="attachmentPreview">
+          <img id="attachmentImage" alt="待发送图片预览" />
+          <div><b id="attachmentName">图片</b><small>将随消息一起发送</small></div>
+          <button id="removeAttachment" type="button" aria-label="移除图片">×</button>
+        </div>
+        <div class="composer">
+          <input id="fileInput" type="file" accept="image/*" hidden />
+          <button class="tool-button" id="attachButton" type="button" aria-label="添加图片" title="添加图片">📎</button>
+          <div class="input-shell">
+            <textarea id="messageInput" rows="1" placeholder="粘贴你的雅思作文，我来评分…" aria-label="消息内容"></textarea>
+            <div class="composer-meta"><span id="draftHint">Enter 发送 · Shift + Enter 换行</span><span id="charCount">0</span></div>
+          </div>
+          <button class="tool-button voice-button" id="voiceButton" type="button" aria-label="语音转文字" title="语音转文字"><span class="voice-dot"></span>🎙</button>
+          <button class="send-button" id="sendButton" type="button" aria-label="发送消息"><span>➤</span></button>
+        </div>
+        <p class="composer-footnote">AI 评分仅供练习参考，重要考试策略请结合专业教师建议。</p>
+      </footer>
+    </section>
+  </main>
+
+  <div class="modal-backdrop is-hidden" id="settingsModal" role="dialog" aria-modal="true" aria-labelledby="settingsTitle">
+    <div class="modal-card settings-card">
+      <div class="modal-header"><div><span class="eyebrow">连接你的模型</span><h3 id="settingsTitle">助手设置</h3></div><button class="modal-close" data-close="settingsModal" aria-label="关闭">×</button></div>
+      <form id="settingsForm">
+        <label><span>API 服务商</span><select id="providerInput"><option value="openai">OpenAI</option><option value="qwen">通义千问</option><option value="deepseek">DeepSeek</option><option value="custom">自定义兼容接口</option></select><small id="providerHint">选择后会自动填入兼容地址与推荐模型。</small></label>
+        <label><span>API 地址</span><input id="apiBaseInput" type="url" placeholder="https://api.openai.com/v1" /></label>
+        <label><span>API 密钥</span><div class="password-field"><input id="apiKeyInput" type="password" placeholder="sk-..." autocomplete="off" /><button class="text-button" id="toggleApiKey" type="button">显示</button></div><small>仅保存在当前浏览器，不会写进代码。</small></label>
+        <label><span>模型</span><select id="modelSelect"></select><small id="modelHint">选择当前服务商支持的模型。</small></label>
+        <label class="is-hidden" id="customModelField"><span>自定义模型名称</span><input id="modelInput" placeholder="输入模型 ID" /></label>
+        <label><span>雅思助手提示词</span><textarea id="promptInput" rows="8"></textarea><small>你之后提供的新提示词可以直接粘贴到这里。</small></label>
+        <div class="modal-actions"><span class="save-status" id="saveStatus"></span><button class="secondary-button" type="button" data-close="settingsModal">取消</button><button class="save-button" type="submit">保存设置</button></div>
+      </form>
+    </div>
+  </div>
+
+  <div class="modal-backdrop is-hidden" id="levelModal" role="dialog" aria-modal="true" aria-labelledby="levelTitle">
+    <div class="modal-card level-card">
+      <div class="modal-header"><div><span class="eyebrow">每一次练习都算数</span><h3 id="levelTitle">成长等级图鉴</h3></div><button class="modal-close" data-close="levelModal" aria-label="关闭">×</button></div>
+      <p class="level-intro">积分门槛按 2 倍增长。作文评分 5–6 分获得 1 积分，高于 6 分获得 2 积分。</p>
+      <div class="level-grid" id="levelGrid"></div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" role="status"></div>
+  <div class="points-celebration" id="pointsCelebration" aria-hidden="true"><span id="celebrationValue">+1</span><small>成长积分</small></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
