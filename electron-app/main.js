@@ -18,7 +18,7 @@ function startServer() {
       if (data.toString().includes("已启动")) resolve();
     });
 
-    setTimeout(resolve, 2000);
+    setTimeout(resolve,2500);
   });
 }
 
